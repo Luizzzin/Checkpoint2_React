@@ -33,7 +33,7 @@ const handleWeightChange = (e) => {
 
   return (
     <div id="calc-container">
-        <h2>Calculadora de IMC</h2>
+        <h1>Calculadora de IMC</h1>
         <form id="imc-form">
             <div className="form-inputs">
                 <div className="form-control">
