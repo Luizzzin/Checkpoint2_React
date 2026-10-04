@@ -7,6 +7,7 @@ export const data = [
         info: "Magreza",
         obesity: "0",
         infoclass: "medium",
+        color: "yellow",
     },
     {
         min: 18.5,
@@ -15,6 +16,8 @@ export const data = [
         info: "Normal",
         obesity: "0",
         infoclass: "good",
+        color: "green",
+
     },
     {
         min: 25,
@@ -23,6 +26,7 @@ export const data = [
         info: "Sobrepeso",
         obesity: "I",
         infoclass: "low",
+        color:"orange",
     },
     {
         min: 30,
@@ -31,6 +35,7 @@ export const data = [
         info: "Obesidade",
         obesity: "II",
         infoclass: "medium",
+        color:"red",
     },
     {
         min: 40,
@@ -39,5 +44,6 @@ export const data = [
         info: "Obesidade grave",
         obesity: "III",
         infoclass: "high",
+        color:"red",
     },
 ];

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { data } from './data/data'
 import ImcCalc from './component/ImcCalc'
 import ImcTable from './component/ImcTable'
@@ -10,6 +10,14 @@ function App() {
   const [infoClass, setInfoClass] = useState("")
   const [pesoIdeal, setPesoIdeal] = useState("")
   const [imcMinimo, setImcMinimo] = useState()
+  const [color, setColor] = useState("")
+
+  useEffect( () => {
+    document.body.style.backgroundColor = color || "";
+  return () => {
+    document.body.style.backgroundColor = "";
+  };
+}, [color]);
 
   const calcImc = (e, height, weight) => {
     e.preventDefault();
@@ -31,6 +39,7 @@ function App() {
       if (imcNumber >= item.min && imcNumber <= item.max) {
         setInfo(item.info);
         setInfoClass(item.infoclass);
+        setColor(item.color);
         currentItem = item
       }
     });
@@ -38,15 +47,18 @@ function App() {
     if (currentItem && currentItem.info !== "Normal") {
       const pesoMinIdeal = 18.5 * (heightFloat * heightFloat);
       const pesoMaxIdeal = 24.9 * (heightFloat * heightFloat);
+      
 
       if (currentItem.info === "Magreza") {
         const pesoRecomendado = pesoMinIdeal.toFixed(1);
         setPesoIdeal(pesoRecomendado)
         setImcMinimo(18.5)
+        
       } else {
         const pesoRecomendado = pesoMaxIdeal.toFixed(1);
         setPesoIdeal(pesoRecomendado)
         setImcMinimo(24.9)
+        
       }
     }
   };
@@ -59,17 +71,20 @@ function App() {
     setInfoClass("");
     setPesoIdeal("");
     setImcMinimo("");
+    setColor("");
+    
   };
 
   return (
     <div className="container">
       {!imc ? (
-        <ImcCalc calcImc={calcImc} />
+        <ImcCalc calcImc={calcImc} color={color} />
       ) : (
         <ImcTable
           data={data}
           imc={imc}
           info={info}
+          color={color}
           infoClass={infoClass}
           resetCalc={resetCalc}
           imcMinimo={imcMinimo}

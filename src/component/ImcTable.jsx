@@ -3,7 +3,7 @@ import Button from "./Button";
 import "./ImcTable.css"
 
 
-const ImcTable = ({ data, imc, info, resetCalc }) => {
+const ImcTable = ({ data, imc, info, resetCalc, color}) => {
 
   return (
 
