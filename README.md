@@ -6,5 +6,5 @@
 - Aumento do tamanho do titulo.
 
 integrantes: 
-Luiz Henrique Barbosa Dias	562399	2CCPO
-Gregory Debom Ferreira	562346	2CCPO
+- Luiz Henrique Barbosa Dias	562399	2CCPO
+- Gregory Debom Ferreira	562346	2CCPO
